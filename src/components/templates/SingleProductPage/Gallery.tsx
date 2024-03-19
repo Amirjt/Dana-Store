@@ -10,8 +10,9 @@ import "swiper/css/thumbs";
 import { Autoplay, FreeMode, Thumbs } from "swiper/modules";
 import { useState } from "react";
 
-const Gallery = () => {
+const Gallery = ({ images }: { images: string[] }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   return (
     <>
       <Swiper
@@ -24,39 +25,11 @@ const Gallery = () => {
         modules={[FreeMode, Thumbs, Autoplay]}
         className="mySwiper1 mb-5"
       >
-        <SwiperSlide>
-          <img
-            className="rounded-lg"
-            src="https://swiperjs.com/demos/images/nature-1.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-        </SwiperSlide>
+        {images.map((image) => (
+          <SwiperSlide>
+            <img src={image} alt="" />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -67,36 +40,11 @@ const Gallery = () => {
         modules={[FreeMode, Thumbs]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-        </SwiperSlide>
+        {images.map((image) => (
+          <SwiperSlide>
+            <img className="rounded-lg" src={image} alt="" />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

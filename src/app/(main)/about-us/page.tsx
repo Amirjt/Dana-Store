@@ -1,10 +1,8 @@
-import React from "react";
-
 const AboutUsPage = () => {
   return (
     <div className="mt-7 flex flex-col items-center gap-4 p-5">
       <h2 className="font-bold text-xl">درباره ما </h2>
-      <p className="leading-7 text-muted-foreground text-justify">
+      <p className="leading-9 text-muted-foreground text-justify">
         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
         از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
         سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای

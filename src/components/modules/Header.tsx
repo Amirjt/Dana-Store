@@ -15,13 +15,23 @@ import { Menu } from "lucide-react";
 import { Input } from "../ui/input";
 
 import { headerLinks } from "@/lib/constants";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
+import { toast } from "sonner";
+import useSession from "@/custom/useSession";
 
 const Header = () => {
-  const isLogin = true;
-
+  const { session } = useSession();
   const pathName = usePathname();
+
+  const signoutHandler = async () => {
+    const res = await fetch("/api/auth/logout");
+    if (res.status === 200) {
+      toast.success("خروج با موفقیت انجام شد");
+      location.reload();
+    }
+  };
 
   return (
     <header className="flex items-center justify-between sm:mt-3 rounded-lg shadow-lg p-4">
@@ -71,7 +81,7 @@ const Header = () => {
         <div>
           <Input size={10} type="text" placeholder="جستجو" />
         </div>
-        {isLogin ? (
+        {session.status !== "" && session.status === "authenticated" ? (
           <div className="ml-3 sm:ml-6 text-primary cursor-pointer relative group">
             <div className="flex items-center gap-1">
               <Image
@@ -87,16 +97,22 @@ const Header = () => {
               <Link href={"/p-user/cart"}>سبد خرید</Link>
               <Link href={"/p-user/comments"}>نظرات ثبت شده</Link>
               <Link href={"/p-user/tickets"}>تیکت ها</Link>
-              <Link href={"/p-user/logout"}>خروج</Link>
+              <Button variant={"destructive"} onClick={signoutHandler}>
+                خروج
+              </Button>
             </div>
           </div>
         ) : (
-          <Link
-            className="text-primary ml-3 sm:ml-6 font-semibold"
-            href={"/login"}
-          >
-            ثبت نام / ورود
-          </Link>
+          <>
+            {session.status !== "" && (
+              <Link
+                className="text-primary ml-3 sm:ml-6 font-semibold"
+                href={"/login"}
+              >
+                ثبت نام / ورود
+              </Link>
+            )}
+          </>
         )}
       </div>
     </header>

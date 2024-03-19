@@ -26,7 +26,7 @@ const SinglePostPage = () => {
         <div className="flex items-center justify-between">
           <h2 className="font-bold text-xl">بهترین گوشی تا 15 میلیون تومن</h2>
           <div>
-            <span className="bg-primary px-4 py-1 rounded-lg text-white">
+            <span className="bg-primary px-4 py-1 rounded-lg text-white text-sm">
               کاربردی
             </span>
           </div>

@@ -4,14 +4,13 @@
 
 @font-face {
   font-family: "Dana";
-  src: url("../../../public/fonts/Dana.ttf");
-  src: url("../../../public/fonts/DanaFaNum-Regular.ttf");
+  src: url("../../public/fonts/Dana.ttf");
+  src: url("../../public/fonts/DanaFaNum-Regular.ttf");
 }
 
 body {
   font-family: "Dana" !important;
 }
-
 
 .mySwiper .swiper-slide {
   width: 25%;

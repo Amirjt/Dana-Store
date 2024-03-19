@@ -1,5 +1,4 @@
 import SinglePost from "@/components/modules/SinglePost";
-import React from "react";
 
 const BlogPage = () => {
   return (

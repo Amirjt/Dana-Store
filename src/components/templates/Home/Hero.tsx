@@ -11,7 +11,7 @@ const Hero = () => {
     <>
       <div data-aos="fade-zoom-in" className="mt-2 hidden sm:flex">
         <Swiper
-          className="mySwiper"
+          className="mySwiper4"
           slidesPerView={1}
           modules={[Autoplay]}
           grabCursor
